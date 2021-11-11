@@ -9,6 +9,9 @@ resource "aws_iam_user" "bob" {
 resource "aws_iam_user" "sam" {
   name = "sam"
 }
+resource "aws_iam_user" "john" {
+  name = "john"
+}
 
 resource "aws_iam_group" "billing" {
   name = "billing"
@@ -20,6 +23,7 @@ resource "aws_iam_group_membership" "team" {
   users = [
     aws_iam_user.bob.name,
     aws_iam_user.sam.name,
+    aws_iam_user.john.name,
   ]
   
   group = aws_iam_group.billing.name
